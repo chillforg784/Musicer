@@ -2,6 +2,10 @@ import nextcord
 from nextcord.ext import commands
 import yt_dlp
 import asyncio
+import os
+from dotenv import load_dotenv
+
+load_dotenv() # Loads the .env file with your token
 
 # --- BOT SETUP ---
 intents = nextcord.Intents.default()
@@ -205,4 +209,5 @@ async def stop(ctx):
         await ctx.send("⏹️ Playback stopped, queue cleared, and disconnected.")
 
 # --- RUN THE BOT ---
-bot.run('MTQyMTA4NTg3OTI3NDgzMTkwMg.GKQrby.TIDeBGsvIvRw0-vz8pep0mbqF8hjhMBSCrzneo')
+# This line loads the token from your .env file or hosting service variables
+bot.run(os.environ['DISCORD_TOKEN'])
